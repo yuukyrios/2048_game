@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to bottom, #06202b, #000f14); /* Gradient inspired by oceanic tones */
+}
+
+.game-container{
+   width: 320px;
+   height: 320px;
+   border: 1px solid #4c6d7c; /* Subtle blue border for contrast */
+   overflow: hidden;
+   background: rgba(0, 0, 0, 0.2); /* Slight transparency for depth effect */
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.cell{
+    width: 77px;
+    height: 77px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #fff; /* Adjusted text color for better contrast on background */
+}
+
+.score-container{
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #fff; /* Changed to white for better contrast */
+}
+
+.cell[data-value="2"]{
+    background-color: #76c7c0; /* Soft teal */
+}
+
+.cell[data-value="4"]{
+    background-color: #6ab0ab; /* Slightly darker teal */
+}
+
+.cell[data-value="8"]{
+    background-color: #5c8c8a; /* Muted blue */
+}
+
+.cell[data-value="16"]{
+    background-color: #6e9bb8; /* Soft navy blue */
+}
+
+.cell[data-value="32"]{
+    background-color: #5598c1; /* Light azure blue */
+}
+
+.cell[data-value="64"]{
+    background-color: #3a7d9d; /* Deeper blue */
+}
+
+.cell[data-value="128"]{
+    background-color: #428baf; /* Strong blue */
+}
+
+.cell[data-value="256"]{
+    background-color: #32799c; /* Oceanic blue */
+}
+
+.cell[data-value="512"]{
+    background-color: #307184; /* Deeper teal */
+}
+
+.cell[data-value="1024"]{
+    background-color: #1e4a6c; /* Darker blue */
+}
+
+.cell[data-value="2048"]{
+    background-color: #1b3b4a; /* Very dark ocean blue */
+}
+
+.cell[data-value="4096"]{
+    background-color: #0e2937; /* Almost black for a faded oceanic feel */
+}
+
+#restart-btn{
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #1e4a6c;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+#game-over{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-cell[data-value]{
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.new-tile{
+    animation: appear 0.3s;
+}
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
